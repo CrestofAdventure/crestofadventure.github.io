@@ -7,11 +7,9 @@
 
 <body style="margin:0; padding:0;">
 
-    <!-- 화면에 보이는 이미지 -->
     <img src="주점.png" 
          style="width:100%; max-height:500px; object-fit:contain; display:block;">
 
-    <!-- 구글 로그인 버튼 -->
     <div style="text-align:center; margin-top:30px;">
         <button onclick="googleLogin()" 
                 style="padding:12px 20px; font-size:20px; cursor:pointer;">
@@ -19,7 +17,6 @@
         </button>
     </div>
 
-    <!-- Firebase SDKs -->
     <script type="module">
         import { initializeApp } 
             from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
@@ -27,12 +24,12 @@
             from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
         const firebaseConfig = {
-            apiKey: "네_값",
-            authDomain: "네_값",
-            projectId: "네_값",
-            storageBucket: "네_값",
-            messagingSenderId: "네_값",
-            appId: "네_값"
+            apiKey: "여기에 너 값",
+            authDomain: "여기에 너 값",
+            projectId: "여기에 너 값",
+            storageBucket: "여기에 너 값",
+            messagingSenderId: "여기에 너 값",
+            appId: "여기에 너 값"
         };
 
         const app = initializeApp(firebaseConfig);
