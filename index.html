@@ -5,36 +5,37 @@
     <title>Crest of Adventure</title>
 </head>
 
-<body style="margin:0; padding:0; text-align:center;">
+<body style="margin:0; padding:0;">
 
-    <!-- 메인 이미지 -->
+    <!-- 화면에 보이는 이미지 -->
     <img src="주점.png" style="width:100%; height:auto; display:block;">
 
     <!-- 구글 로그인 버튼 -->
-    <button onclick="googleLogin()" 
-            style="padding:10px 20px; font-size:20px; margin-top:20px;">
-        구글로 로그인
-    </button>
+    <div style="text-align:center; margin-top:30px;">
+        <button onclick="googleLogin()" 
+                style="padding:12px 20px; font-size:20px; cursor:pointer;">
+            구글로 로그인
+        </button>
+    </div>
 
-    <!-- Firebase + Google Login -->
+    <!-- Firebase SDKs -->
     <script type="module">
         import { initializeApp } 
             from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-
-        import { getAuth, GoogleAuthProvider, signInWithPopup }
+        import { getAuth, GoogleAuthProvider, signInWithPopup } 
             from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
-        // ↓↓↓↓↓ 반드시 Firebase 콘솔에서 복붙해온 값 넣어야 함!
+        // 🔥 여기에 네 Firebase 설정 넣기
         const firebaseConfig = {
-            apiKey: "AIzaSyCUzz79PQ9EOZKf2iv9wU1tx9YM",
-            authDomain: "crestofadventure-95f39.firebaseapp.com",
-            projectId: "crestofadventure-95f39",
-            storageBucket: "crestofadventure-95f39.appspot.com",
-            messagingSenderId: "908237464394",
-            appId: "1:908237464394:web:5c7cbb4cca4f97bed4a421d3"
+            apiKey: "네_값",
+            authDomain: "네_값",
+            projectId: "네_값",
+            storageBucket: "네_값",
+            messagingSenderId: "네_값",
+            appId: "네_값"
         };
 
-        // Firebase 시작
+        // Firebase 초기화
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
