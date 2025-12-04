@@ -5,58 +5,53 @@
     <title>Crest of Adventure</title>
 </head>
 
-<body style="margin:0; padding:0;">
+<body style="margin:0; padding:0; text-align:center;">
 
     <!-- 메인 이미지 -->
     <img src="주점.png" style="width:100%; height:auto; display:block;">
 
     <!-- 구글 로그인 버튼 -->
-    <button onclick="googleLogin()"
-        style="position:fixed; top:20px; right:20px; padding:10px 15px; z-index:999;">
-        Google Login
+    <button onclick="googleLogin()" 
+            style="padding:10px 20px; font-size:20px; margin-top:20px;">
+        구글로 로그인
     </button>
 
-    <!-- FIREBASE + GOOGLE LOGIN SCRIPT -->
+    <!-- Firebase + Google Login -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import { getAuth, GoogleAuthProvider, signInWithPopup } 
+        import { initializeApp } 
+            from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+
+        import { getAuth, GoogleAuthProvider, signInWithPopup }
             from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
-        // 👉 여기에 Firebase 설정 붙여넣기
+        // ↓↓↓↓↓ 반드시 Firebase 콘솔에서 복붙해온 값 넣어야 함!
         const firebaseConfig = {
-            // 네 Firebase 설정 그대로
+            apiKey: "AIzaSyCUzz79PQ9EOZKf2iv9wU1tx9YM",
+            authDomain: "crestofadventure-95f39.firebaseapp.com",
+            projectId: "crestofadventure-95f39",
+            storageBucket: "crestofadventure-95f39.appspot.com",
+            messagingSenderId: "908237464394",
+            appId: "1:908237464394:web:5c7cbb4cca4f97bed4a421d3"
         };
 
-        // Firebase 초기화 (1번만!)
+        // Firebase 시작
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        // Google 로그인 함수
-        window.googleLogin = function () {
+        // 구글 로그인 함수
+        window.googleLogin = function() {
             signInWithPopup(auth, provider)
-                .then((result) => {
-                    const user = result.user;
-                    alert("구글 로그인 성공: " + user.email);
-                })
-                .catch((error) => {
-                    console.error(error);
-                    alert("로그인 실패");
-                });
-        };
+            .then((result) => {
+                const user = result.user;
+                alert("구글 로그인 성공: " + user.email);
+            })
+            .catch((error) => {
+                console.error(error);
+                alert("로그인 실패: " + error.message);
+            });
+        }
     </script>
 
 </body>
 </html>
-const firebaseConfig = {
-  apiKey: "AAAAAAAAAAAAA",
-  authDomain: "XXXX.firebaseapp.com",
-  projectId: "XXXXX",
-  storageBucket: "XXXXX.appspot.com",
-  messagingSenderId: "XXXXX",
-  appId: "XXXXX"
-};
-<button onclick="googleLogin()" 
-        style="padding:10px 20px; font-size:20px; margin-top:20px;">
-    구글로 로그인
-</button>
