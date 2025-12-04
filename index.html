@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Google Login Test</title>
-
-    <!-- Firebase JS SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <title>Crest of Adventure</title>
 </head>
-
 <body>
-    <h1>Google Login Test</h1>
 
-    <button id="google-login-btn" style="padding:10px 20px; font-size:18px;">
-        구글 로그인
-    </button>
+    <h1>Google Login Test</h1>
+    <button id="google-login-btn">Google Login</button>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
     <script>
-        // ----------------------------------------------------
-        // 🔥 Firebase 설정 ─ 여기 6줄만 네 값으로 바꾸면 끝
-        // ----------------------------------------------------
+        // ---------------------------
+        // 🔥 여기만 네 Firebase 값으로 변경하면 됨
+        // ---------------------------
         const firebaseConfig = {
-            apiKey: "너_apiKey",
-            authDomain: "너_projectId.firebaseapp.com",
-            projectId: "너_projectId",
-            storageBucket: "너_projectId.appspot.com",
-            messagingSenderId: "너_messagingSenderId",
-            appId: "너_appId"
+            apiKey: "너_APIKEY",
+            authDomain: "너_projectid.firebaseapp.com",
+            projectId: "너_projectid",
+            storageBucket: "너_projectid.appspot.com",
+            messagingSenderId: "너_senderid",
+            appId: "너_appid"
         };
 
         // Firebase 초기화
@@ -36,7 +33,7 @@
         const auth = firebase.auth();
         const provider = new firebase.auth.GoogleAuthProvider();
 
-        // 버튼 클릭 → Google 로그인
+        // Google 로그인 버튼 이벤트
         document.getElementById("google-login-btn").addEventListener("click", () => {
             auth.signInWithPopup(provider)
                 .then((result) => {
@@ -49,5 +46,6 @@
                 });
         });
     </script>
+
 </body>
 </html>
