@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>Crest Of Adventure - Login Test</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Login Test</title>
 
-  <!-- Firebase CDN -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 </head>
+
 <body>
-  <h1>Google Login Test</h1>
+    <h1>Google Login Test</h1>
 
-  <button id="google-login-btn" style="padding:10px 20px; font-size:18px;">
-    Google 로그인
-  </button>
+    <button id="google-login-btn" style="padding:10px 20px; font-size:18px;">
+        구글 로그인
+    </button>
 
-  <script>
-    // -----------------------------
-    // Firebase 설정 (너 파이어베이스 콘솔에서 복붙해온 config 넣으면 됨)
-    // -----------------------------
-    const firebaseConfig = {
-      apiKey: "너_apiKey",
-      authDomain: "너_projectId.firebaseapp.com",
-      projectId: "너_projectId",
-      storageBucket: "너_projectId.appspot.com",
-      messagingSenderId: "너값",
-      appId: "너값"
-    };
+    <script>
+        // ----------------------------------------------------
+        // 🔥 Firebase 설정 ─ 여기 6줄만 네 값으로 바꾸면 끝
+        // ----------------------------------------------------
+        const firebaseConfig = {
+            apiKey: "너_apiKey",
+            authDomain: "너_projectId.firebaseapp.com",
+            projectId: "너_projectId",
+            storageBucket: "너_projectId.appspot.com",
+            messagingSenderId: "너_messagingSenderId",
+            appId: "너_appId"
+        };
 
-    firebase.initializeApp(firebaseConfig);
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
 
-    const auth = firebase.auth();
-    const provider = new firebase.auth.GoogleAuthProvider();
+        const auth = firebase.auth();
+        const provider = new firebase.auth.GoogleAuthProvider();
 
-    document.getElementById("google-login-btn").addEventListener("click", () => {
-      auth.signInWithPopup(provider)
-        .then((result) => {
-          console.log("로그인 성공:", result.user);
-          alert("로그인 성공: " + result.user.email);
-        })
-        .catch((error) => {
-          console.error("로그인 실패:", error);
-          alert("로그인 실패: " + error.message);
+        // 버튼 클릭 → Google 로그인
+        document.getElementById("google-login-btn").addEventListener("click", () => {
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    alert("로그인 성공: " + result.user.email);
+                    console.log("로그인 성공:", result.user);
+                })
+                .catch((error) => {
+                    alert("로그인 실패: " + error.message);
+                    console.error("로그인 실패:", error);
+                });
         });
-    });
-  </script>
+    </script>
 </body>
 </html>
-const firebaseConfig = {
-  apiKey: "ABC123...",  // 네 값
-  authDomain: "crestofadventure-d8e83.firebaseapp.com",
-  projectId: "crestofadventure-d8e83",
-  storageBucket: "crestofadventure-d8e83.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abcdef12345"
+https://good-creator.web.app/__/auth/handler
+http://localhost:5173
+https://good-creator.firebaseapp.com/__/auth/handler
+https://crestofadventure.github.io/__/auth/handler
